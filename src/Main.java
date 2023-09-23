@@ -44,6 +44,7 @@ public class Main {
         System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
         todaysRace2 = new Race(2023,"Poleno  CUP");
         System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
+        todaysRace.setWinner(chuck);
 
 
 
