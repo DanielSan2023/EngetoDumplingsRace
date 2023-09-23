@@ -10,6 +10,7 @@ public class Main {
         Racer thirdRacer = new Racer();
         Racer chuck;
         Race todaysRace;
+        Race todaysRace2;
 
         Race race2017  = new Race();
         Race race2018 =  new Race();
@@ -39,10 +40,10 @@ public class Main {
         //Create object todayRace
         todaysRace = new Race(2000,"MCR Brichac Cup",  LocalDate.of(2000,5,12),chuck);
 
-
-
-
-
+        todaysRace2 = new Race(2023);
+        System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
+        todaysRace2 = new Race(2023,"Poleno  CUP");
+        System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
 
 
 
