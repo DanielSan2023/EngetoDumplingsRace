@@ -19,6 +19,25 @@ public class Race {
         this.winner = winner;
     }
 
+    public Race(String title, int year, LocalDate date) {
+        this.year = year;
+        this.title = title;
+        this.date = date;
+        this.winner = null;
+    }
+
+    public Race(int year) {
+        this(year,"Svestka Cup");
+
+    }
+    public Race(int year, String title) {
+        this.year = year;
+        this.title = title;
+        this.date = LocalDate.now();
+    }
+
+
+
     //endregion Konstruktory
     //region Getter and Setter
     public int getYear() {

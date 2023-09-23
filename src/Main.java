@@ -37,7 +37,7 @@ public class Main {
 
 
         //Create object todayRace
-        todaysRace = new Race(2000,"MCR Brichac Cup",LocalDate.of(2000,5,12),chuck);
+        todaysRace = new Race(2000,"MCR Brichac Cup",  LocalDate.of(2000,5,12),chuck);
 
 
 
