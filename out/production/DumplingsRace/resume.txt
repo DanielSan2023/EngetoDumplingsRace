@@ -1,0 +1,37 @@
+Java Akademie  Engeto
+Lekce 2.3: Metody a konstruktory
+
+Vytvořili jsme si tedy první objekty. Ale co s nimi vlastně můžeme dělat?
+Potřebujeme nějak nastavit hodnoty jejich atributů a také bychom si chtěli tyto hodnoty umět vypsat.
+
+Jak si řekneme později, v objektovém programování platí princip zapouzdření (encapsulation).
+To znamená, že s hodnotami atributů manipuluje vždy objekt sám.
+K manipulaci s hodnotami atributů slouží metody (method).
+
+
+Cvičení: přístupové metody
+Úkol: vytvoř přístupové metody
+Zkus si nyní doplnit ostatní přístupové metody do třídy Racer. Budou nastavovat a číst:
+
+počet snězených knedlíků,
+jestli závodník už skončil s jídlem.
+
+Úkol: zápis přístupových metod ručně
+Zkus si nyní napsat sám/sama přístupové metody k atributům year a title třídy Race.
+
+Schválně zkus nevyužívat automatické generování kódu, ať si lépe uvědomíš,
+ jak musí jednotlivé informace následovat po sobě.
+
+Pro kontrolu si můžeš poté nechat přístupové metody vygenerovat prostředím IntelliJ IDEA.
+
+
+Cvičení: konstruktor
+Cvičení – vytvoř vhodný konstruktor pro třídu Race
+Zkus si nyní napsat konstruktor pro třídu Race. Vyjdi z následujících požadavků:
+
+Vždy je třeba zadat ročník soutěže pomocí parametru.
+Jako výchozí datum soutěže použij dnešní: LocalDate.now().
+Umožni ale využít nastavení pomocí parametru konstruktoru (budeš tedy potřebovat alespoň dva konstruktory).
+Výchozí název závodu bude: "Švestka Cup". Umožni ale změnit název v rámci jednoho z konstruktorů.
+Výchozí hodnota pro atribut winner bude null – proměnná zůstane „prázdná“, vítěz zatím nebude stanoven.
+Následně zjednoduš kód metody main s využitím konstruktorů.

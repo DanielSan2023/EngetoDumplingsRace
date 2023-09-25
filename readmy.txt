@@ -1,0 +1,23 @@
+...
+
+
+
+
+
+
+Cvičení: seznam závodníků
+Cvičení – kolekce a práce s ní
+Vytvoř si v metodě main kolekci závodů (objekty třídy Race).
+Uprav kód metody main tak, že závody race2017, race2018 a race2019 umístíš do kolekce.
+Na konec zapiš kód, který vezme všechny závody z kolekce a vypíše u každého z nich ročník.
+Nezapomeň na import!
+
+Cvičení – seznam závodníků
+Zkus přidat do třídy Race seznam závodníků.
+
+Přidej atribut listOfRacers.
+Přidej metodu addRacer, která do seznamu přidá jednoho závodníka.
+Přidej metodu removeRacer, která odebere ze seznamu zadaného závodníka.
+Přidej metodu getRacers.
+Metoda vytvoří a vrátí nový ArrayList pro uložení závodníků.
+Ve vráceném seznamu budou všichni závodníci z atributu listOfRacers.
