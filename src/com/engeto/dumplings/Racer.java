@@ -63,7 +63,19 @@ public class Racer {
         return this.numberOfDumplings;
     }
 
+    public int getPoints() {
+        if (numberOfDumplings <= 15) return 0;
+        return numberOfDumplings;
+    }
     public void setFinalResult(boolean finalResult) {
         isFinalResult = finalResult;
+    }
+
+    @Override
+    public String toString() {
+        return "Racer{" +
+                "name='" + name + '\'' +
+                ", numberOfDumplings=" + numberOfDumplings +
+                '}';
     }
 }

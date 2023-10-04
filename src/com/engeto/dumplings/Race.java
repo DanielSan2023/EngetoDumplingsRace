@@ -9,6 +9,7 @@ public class Race {
     String title;
     LocalDate date;
     Racer winner;
+
    List<Racer> listOfRacers = new ArrayList<>();
 
     //region konstruktory
@@ -20,6 +21,13 @@ public class Race {
         this.title = title;
         this.date = date;
         this.winner = winner;
+    }
+
+    public Race( String title,int year, LocalDate date, List<Racer> listOfRacers) {
+        this.year = year;
+        this.title = title;
+        this.date = date;
+        this.listOfRacers = listOfRacers;
     }
 
     public Race(String title, int year, LocalDate date) {
@@ -46,17 +54,13 @@ public class Race {
 
 
            // add new racer
-    public void addRacer(Racer newRacer){
-        listOfRacers.add(newRacer);
-    }
+
                 // delete racer from listOfRacer
     public void removeRacer(Racer racer){
        listOfRacers.remove(racer);
     }
                 // create new ArrayList for racer and return listOfRacers with all racers.
-    public List<Racer> getRacers(){
-        return new ArrayList<Racer>(listOfRacers);
-    }
+
 
             public int getYear() {
         return year;
@@ -89,8 +93,33 @@ public class Race {
     public void setWinner(Racer winner) {
         this.winner = winner;
     }
-
     //endregion Getter and Setter
+    @Override
+    public String toString() {
+        return "Race{" +
+                "year=" + year +
+                ", title='" + title + '\'' +
+                ", date=" + date +
+                ", winner=" + winner +
+                ", listOfRacers=" + listOfRacers +
+                '}';
+    }
+    public Racer getRacerWithMostDumplings(List<Racer> listOfRacers) {
+        if (listOfRacers.isEmpty()) {
+            return null; // Ak nie sú žiadni pretekári, vráti null.
+        }
+        Racer racerWithMostDumplings = listOfRacers.get(0); // Predpokladáme, že prvý pretekár má najviac knedlíkov.
+        for (Racer racer : listOfRacers) {
+            if (racer.getNumberOfDumplings() > racerWithMostDumplings.getNumberOfDumplings()) {
+                racerWithMostDumplings = racer; // Ak aktuálny pretekár má viac knedlíkov, aktualizujeme pretekára s najviac knedlíkmi.
+            }
+        }
+
+        return racerWithMostDumplings;
+    }
+
+
+
 
 
 

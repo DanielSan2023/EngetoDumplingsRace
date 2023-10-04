@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
         Racer firstRacer = new Racer(); // create Object Racer
         Racer secondRacer = new Racer();
         Racer thirdRacer = new Racer();
@@ -30,58 +30,67 @@ public class Main {
         firstRacer.setName("Radomir");
         System.out.println(firstRacer.getName());
 
-        // Create object 'chuck'
+
         chuck = new Racer("Chuck Norris ",LocalDate.of(2000,5,1),
-                1000,false);
-//        chuck.setName("Chuck Norris ");
-//        chuck.setBorn(LocalDate.of(2000,5,1));
-//        chuck.setNumberOfDumplings(1000);
-//        chuck.setFinalResult(false);
+                120,false);
         Jackie = new Racer("Jackie Chann ",LocalDate.of(1960,11,1),
-                140,false);
-        Sonya = new Racer("Jackie Chann ",LocalDate.of(1960,11,1),
-                140,false);
-
-
-        String chucksName = chuck.getName();
-
-        System.out.println(chucksName +"  zjedol:  "+chuck.getNumberOfDumplings() +" knedlikov");
-
-
-        //Create object todayRace
-        todaysRace = new Race("MCR Brichac Cup",2000,  LocalDate.of(2000,5,12),chuck);
-
-        todaysRace2 = new Race(2023);
-        System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
-        todaysRace2 = new Race("Poleno  CUP",2023);
-        System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
-        todaysRace.setWinner(chuck);
-
-
+                14,false);
+        Sonya = new Racer("Sonya",LocalDate.of(1980,4,1),
+                1400,false);
         // ArrayList - listOfRacer
         listOfRacer.add(chuck);
         listOfRacer.add(Jackie);
         listOfRacer.add(Sonya);
 
-        // Copy List to other List
-        List<Racer> copyOfList = new ArrayList<Racer>(listOfRacer);
-        System.out.println("Pocet pretekárov je : "+listOfRacer.size()+"  ich mena sú:  ");
+
 
         //write Racer in listOfRacer
         for(Racer racer : listOfRacer){
-              System.out.println( racer.getName());
+            System.out.println( racer.getName());
         }
 
 
-        //Add listOfRace = List<Array>
-        listOfRace.add(race2017);
-        listOfRace.add(race2018);
-        listOfRace.add(race2019);
-        for(Race race : listOfRace){
-            System.out.println( race.getTitle()+" - "+race.getYear());
 
+
+        System.out.println(chuck.getName() +"  zjedol:  "+chuck.getNumberOfDumplings() +" knedlikov");
+        chuck.addDumplings(20);
+        System.out.println("Chuck zjedol :" +chuck.getPoints());
+        System.out.println("Jackie zjedol:" +Jackie.getPoints());
+
+        //Create object todayRace
+        todaysRace = new Race("MCR Brichac Cup",2000,  LocalDate.of(2000,5,12),listOfRacer);
+
+        todaysRace2 = new Race("MCR Brichac Cup",2000,  LocalDate.of(2000,5,12),listOfRacer);
+
+
+        System.out.println(todaysRace2.getDate() +"  "+ todaysRace2.getTitle());
+        todaysRace.setWinner(chuck);
+
+
+        Racer winner = todaysRace2.getRacerWithMostDumplings(listOfRacer);
+        if (winner != null) {
+            System.out.println("Pretekár s najviac knedlíkmi je " + winner.getName() + " s početom " + winner.getNumberOfDumplings() + " knedlíkov.");
+        } else {
+            System.out.println("Nie sú žiadni pretekári.");
         }
 
 
+//
+//
+//        //Add listOfRace = List<Array>
+//        listOfRace.add(race2017);
+//        listOfRace.add(race2018);
+//        listOfRace.add(race2019);
+//        for(Race race : listOfRace){
+//            System.out.println( race.getTitle()+" - "+race.getYear());
+//
+//        }
+//
+//
+//
+//
     }
+
 }
+
+
