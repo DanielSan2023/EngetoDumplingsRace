@@ -1,5 +1,8 @@
 import com.engeto.dumplings.Race;
 import com.engeto.dumplings.Racer;
+import com.engeto.dumplings.RacerLevel;
+import com.engeto.dumplings.Results;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,20 +26,14 @@ public class Main {
         Race race2018 =  new Race(2018);
         Race race2019 = new Race(2019);
 
-        firstRacer.setName("Radek");
-        System.out.println(firstRacer.getName());
-        secondRacer.setName("Jana");
-        System.out.println(secondRacer.getName());
-        firstRacer.setName("Radomir");
-        System.out.println(firstRacer.getName());
 
 
-        chuck = new Racer("Chuck Norris ",LocalDate.of(2000,5,1),
-                120,false);
-        Jackie = new Racer("Jackie Chann ",LocalDate.of(1960,11,1),
-                14,false);
-        Sonya = new Racer("Sonya",LocalDate.of(1980,4,1),
-                1400,false);
+        chuck = new Racer("Chuck","Norrisovichstrik",LocalDate.of(2000,5,1),
+                120,false,RacerLevel.FIRST_LEAGUE);
+        Jackie = new Racer("Jackie","Chann",LocalDate.of(1960,11,1),
+                14,false,RacerLevel.AMATEUR);
+        Sonya = new Racer("Sonya","Mcallings",LocalDate.of(1980,4,1),
+                1400,false,RacerLevel.SECOND_LEAGUE);
         // ArrayList - listOfRacer
         listOfRacer.add(chuck);
         listOfRacer.add(Jackie);
@@ -44,9 +41,13 @@ public class Main {
 
 
 
+        Results.printShortName( chuck.getSurname(),chuck.getName());
+
+
+
         //write Racer in listOfRacer
         for(Racer racer : listOfRacer){
-            System.out.println( racer.getName());
+            System.out.println( racer.getName() +" "+ racer.getProfessionalLevel());
         }
 
 

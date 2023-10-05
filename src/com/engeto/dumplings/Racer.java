@@ -3,32 +3,46 @@ package com.engeto.dumplings;
 import java.time.LocalDate;
 
 public class Racer {
-    String name;
+   private String name;
+   private String surname;
     int numberOfDumplings;
     boolean isFinalResult; // Skončil už závodník („true“), nebo ještě pokračuje
                            // v jídle („false“)?
     LocalDate born;
+    RacerLevel professionalLevel;
 
     //region Konstruktors
     public Racer() {
-        this("Anonymous racer", LocalDate.MIN);
+        this("Racer", "Anonymus",LocalDate.MIN);
     }
 
-    public Racer(String name, LocalDate born) {
-            this(name, born, 0);
+    public String getSurname() {
+        return surname;
     }
 
-    public Racer(String name, LocalDate born, int numberOfDumplings) {
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Racer(String name, String surname, LocalDate born) {
+            this(name,surname, born, 0,RacerLevel.AMATEUR);
+    }
+
+    public Racer(String name,String surname, LocalDate born, int numberOfDumplings,RacerLevel professionalLevel) {
         this.name = name;
+        this.surname = surname;
         this.numberOfDumplings = numberOfDumplings;
         this.born = born;
+        this.professionalLevel = professionalLevel;
     }
 
-    public Racer(String name, LocalDate born, int numberOfDumplings, boolean isFinalResult) {
+    public Racer(String name,String surname, LocalDate born, int numberOfDumplings, boolean isFinalResult,RacerLevel professionalLevel) {
         this.name = name;
+        this.surname = surname;
         this.numberOfDumplings = numberOfDumplings;
         this.isFinalResult = isFinalResult;
         this.born = born;
+        this.professionalLevel = professionalLevel;
     }
    //endregion
     public String getName() {
@@ -58,15 +72,20 @@ public class Racer {
         return isFinalResult;
     }
 
+    public RacerLevel getProfessionalLevel() {
+        return professionalLevel;
+    }
+
+    public void setProfessionalLevel(RacerLevel professionalLevel) {
+        this.professionalLevel = professionalLevel;
+    }
+
     public int addDumplings(int howMuch) {
         this.numberOfDumplings += howMuch;
         return this.numberOfDumplings;
     }
 
-    public int getPoints() {
-        if (numberOfDumplings <= 15) return 0;
-        return numberOfDumplings;
-    }
+
     public void setFinalResult(boolean finalResult) {
         isFinalResult = finalResult;
     }
@@ -77,5 +96,27 @@ public class Racer {
                 "name='" + name + '\'' +
                 ", numberOfDumplings=" + numberOfDumplings +
                 '}';
+    }
+
+
+    public int getPoints() {
+        int quotient;
+        if (professionalLevel == RacerLevel.AMATEUR) {
+            if (numberOfDumplings <= 15)    quotient = 1;
+            else if (numberOfDumplings < 30) quotient = 2;
+            else if (numberOfDumplings < 50) quotient = 3;
+            else quotient = 4;
+        } else if (professionalLevel == RacerLevel.SECOND_LEAGUE) {
+            if (numberOfDumplings <= 20)    quotient = 1;
+            else if (numberOfDumplings < 40) quotient = 2;
+            else if (numberOfDumplings < 60) quotient = 3;
+            else quotient = 4;
+        } else { //  else FIRST_LEAGUE
+            if (numberOfDumplings <= 40)    quotient = 1;
+            else if (numberOfDumplings < 60) quotient = 2;
+            else if (numberOfDumplings < 80) quotient = 3;
+            else quotient = 4;
+        }
+        return numberOfDumplings * quotient;
     }
 }
